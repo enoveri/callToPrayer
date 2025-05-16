@@ -1,51 +1,69 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const Welcome = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-24 bg-white" style={{ marginBottom: "20px" }}>
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Image Column */}
-          <div className="order-2 lg:order-1">
+        {/* Section heading in Lakewood style */}
+        <div className="text-center mb-16 reveal">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-800">
+            Welcome to Call2Prayer
+          </h2>
+          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Image Column with reveal animation - Lakewood style */}
+          <div className="order-2 lg:order-1 reveal">
             <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1438032005730-c779502df39b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGNodXJjaCUyMHBhc3RvcnxlbnwwfHwwfHx8MA%3D%3D" 
-                alt="Pastor" 
-                className="w-full rounded-lg shadow-lg"
+              <img
+                src="https://gidudu.org/wp-content/uploads/2023/09/IMG_2094-scaled-e1706826097884.jpg"
+                alt="Call2Prayer Church"
+                className="w-full rounded-lg shadow-xl hover-lift object-cover"
+                style={{ height: "450px" }}
               />
-              <div className="absolute -bottom-6 -right-6 bg-blue-600 p-6 rounded-lg shadow-lg hidden md:block">
+              <div className="absolute -bottom-6 -right-6 bg-blue-800 p-6 rounded-lg shadow-lg hidden md:block transform transition-transform hover:scale-105">
                 <p className="text-white text-xl font-bold">
-                  "Faith is taking the first step even when you don't see the whole staircase."
+                  "Making Disciples, Equipping them for the work of the
+                  ministry."
                 </p>
               </div>
             </div>
           </div>
-          
-          {/* Content Column */}
+
+          {/* Content Column with staggered reveal animations - Lakewood style */}
           <div className="order-1 lg:order-2">
-            <div className="max-w-lg">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Welcome to Our Church</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                We are a vibrant community of believers dedicated to sharing God's love and message 
-                of hope with our local community and the world. Our mission is to help people connect 
-                with God, grow in their faith, and make a difference in the world.
+            <div className="max-w-lg mx-auto lg:mx-0">
+              <h3 className="text-2xl font-bold mb-6 text-blue-800 reveal">
+                Our Vision
+              </h3>
+              <p className="text-gray-700 mb-6 leading-relaxed reveal text-lg">
+                We are a church after God's heart committed to Evangelism,
+                Loving People and Changing Lives. Located in Mbale, Uganda, we
+                strive to create a community where everyone can experience God's
+                love and grow in their faith journey.
               </p>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Whether you're just beginning to explore faith or have been a believer for years, 
-                you'll find a warm welcome here. We believe everyone matters to God, and everyone 
-                matters to us.
+              <h3 className="text-2xl font-bold mb-6 text-blue-800 reveal">
+                Our Mission
+              </h3>
+              <p className="text-gray-700 mb-8 leading-relaxed reveal text-lg">
+                Our mission is to make disciples and equip them for the work of
+                the ministry. Whether you're exploring faith for the first time
+                or have been walking with God for years, you'll find a warm
+                welcome in our community.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
-                  to="/about" 
-                  className="bg-blue-600 text-white px-6 py-3 rounded-md text-center hover:bg-blue-700 transition"
+              <div className="flex flex-col sm:flex-row gap-5 reveal">
+                <Link
+                  to="/about"
+                  className="bg-blue-800 text-white px-6 py-4 rounded-md text-center hover:bg-blue-900 transition-all hover:scale-105 transform flex items-center justify-center sm:justify-start"
                 >
-                  About Us
+                  About Us <FaArrowRight className="ml-2" />
                 </Link>
-                <Link 
-                  to="/connect" 
-                  className="border border-blue-600 text-blue-600 px-6 py-3 rounded-md text-center hover:bg-blue-50 transition"
+                <Link
+                  to="/connect"
+                  className="bg-yellow-500 text-blue-900 px-6 py-4 rounded-md text-center hover:bg-yellow-400 transition-all hover:scale-105 transform"
                 >
                   Plan Your Visit
                 </Link>

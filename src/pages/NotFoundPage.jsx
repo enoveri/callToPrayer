@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Layout from '../components/layout/Layout';
+import React from "react";
+import { Link } from "react-router-dom";
+import Layout from "../components/layout/Layout";
 
 const NotFoundPage = () => {
   return (
@@ -11,8 +11,8 @@ const NotFoundPage = () => {
         <p className="text-xl text-gray-600 max-w-md mb-8">
           Sorry, the page you are looking for doesn't exist or has been moved.
         </p>
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition"
         >
           Return to Homepage

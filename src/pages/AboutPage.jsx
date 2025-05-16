@@ -1,5 +1,5 @@
-import React from 'react';
-import Layout from '../components/layout/Layout';
+import React from "react";
+import Layout from "../components/layout/Layout";
 
 const AboutPage = () => {
   return (
@@ -8,7 +8,8 @@ const AboutPage = () => {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-6">About Us</h1>
           <p className="text-lg text-gray-600">
-            This is the About page. Content will be added in future updates to match Lakewood Church's design.
+            This is the About page. Content will be added in future updates to
+            match Lakewood Church's design.
           </p>
         </div>
       </div>

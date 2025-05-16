@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 // Create the context
 const NavigationContext = createContext();
@@ -10,44 +10,43 @@ export default NavigationContext;
 export const NavigationProvider = ({ children }) => {
   // Track if we're on transparent header pages (like homepage)
   const [isTransparentHeader, setIsTransparentHeader] = useState(true);
-  
+
   // Track current page for context-specific styling
-  const [currentPage, setCurrentPage] = useState('home');
-  
-  // Custom theme colors for different pages
+  const [currentPage, setCurrentPage] = useState("home");
+  // Custom theme colors aligned with Lakewood Church style
   const pageThemes = {
     home: {
-      primaryColor: 'blue-600',
-      secondaryColor: 'blue-700',
-      accentColor: 'blue-400',
+      primaryColor: "blue-800", // Deep blue similar to Lakewood's #004B87
+      secondaryColor: "blue-900",
+      accentColor: "yellow-500", // Gold/yellow similar to Lakewood's #F2A900
     },
     about: {
-      primaryColor: 'indigo-600',
-      secondaryColor: 'indigo-700',
-      accentColor: 'indigo-400',
+      primaryColor: "blue-800",
+      secondaryColor: "blue-900",
+      accentColor: "yellow-500",
     },
     watch: {
-      primaryColor: 'violet-600',
-      secondaryColor: 'violet-700',
-      accentColor: 'violet-400',
+      primaryColor: "blue-800",
+      secondaryColor: "blue-900",
+      accentColor: "yellow-500",
     },
     give: {
-      primaryColor: 'green-600',
-      secondaryColor: 'green-700',
-      accentColor: 'green-400',
+      primaryColor: "blue-800",
+      secondaryColor: "blue-900",
+      accentColor: "yellow-500",
     },
     connect: {
-      primaryColor: 'orange-600',
-      secondaryColor: 'orange-700',
-      accentColor: 'orange-400',
+      primaryColor: "blue-800",
+      secondaryColor: "blue-900",
+      accentColor: "yellow-500",
     },
     events: {
-      primaryColor: 'amber-600',
-      secondaryColor: 'amber-700',
-      accentColor: 'amber-400',
-    }
+      primaryColor: "blue-800",
+      secondaryColor: "blue-900",
+      accentColor: "yellow-500",
+    },
   };
-  
+
   // Get current theme based on page
   const getCurrentTheme = () => {
     return pageThemes[currentPage] || pageThemes.home;
@@ -60,7 +59,7 @@ export const NavigationProvider = ({ children }) => {
         setIsTransparentHeader,
         currentPage,
         setCurrentPage,
-        getCurrentTheme
+        getCurrentTheme,
       }}
     >
       {children}
@@ -72,7 +71,7 @@ export const NavigationProvider = ({ children }) => {
 export const useNavigation = () => {
   const context = useContext(NavigationContext);
   if (!context) {
-    throw new Error('useNavigation must be used within a NavigationProvider');
+    throw new Error("useNavigation must be used within a NavigationProvider");
   }
   return context;
 };
