@@ -12,6 +12,9 @@ import WatchPage from "./pages/WatchPage";
 import GivePage from "./pages/GivePage";
 import ConnectPage from "./pages/ConnectPage";
 import EventsPage from "./pages/EventsPage";
+import VisitPage from "./pages/VisitPage"; // Added
+import GrowPage from "./pages/GrowPage";   // Added
+import CarePage from "./pages/CarePage";   // Added
 import NotFoundPage from "./pages/NotFoundPage";
 import "./styles/serviceTimer.css";
 
@@ -38,9 +41,12 @@ function AppContent() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about/*" element={<AboutPage />} />
+          <Route path="/visit/*" element={<VisitPage />} /> {/* Added */}
           <Route path="/watch" element={<WatchPage />} />
           <Route path="/give" element={<GivePage />} />
-          <Route path="/connect" element={<ConnectPage />} />
+          <Route path="/connect/*" element={<ConnectPage />} /> {/* Assuming Connect might have sub-routes */}
+          <Route path="/grow/*" element={<GrowPage />} />   {/* Added */}
+          <Route path="/care/*" element={<CarePage />} />   {/* Added */}
           <Route path="/events/*" element={<EventsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

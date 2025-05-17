@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react"; // Added useEffect
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
+import { initScrollReveal } from "../../utils/scrollReveal"; // Corrected import
 
 const Welcome = () => {
+  useEffect(() => {
+    // Initialize ScrollReveal and get the cleanup function
+    const cleanup = initScrollReveal();
+
+    // Return the cleanup function to be called on component unmount
+    return cleanup;
+  }, []); // Empty dependency array ensures this runs once on mount
+
   return (
-    <section className="py-24 bg-white" style={{ marginBottom: "20px" }}>
+    <section className="py-24" style={{ marginBottom: "20px" }}>
       <div className="container mx-auto px-4">
         {/* Section heading in Lakewood style */}
         <div className="text-center mb-16 reveal">

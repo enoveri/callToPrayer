@@ -13,7 +13,7 @@ const sampleEvents = [
     description:
       "A dynamic conference for young people to grow in faith and fellowship.",
     image:
-      "https://placehold.co/300x200/6f42c1/ffffff?text=Event+1",
+      "https://placehold.co/600x800/6f42c1/ffffff?text=Youth+Conference", // Updated image URL
   },
   {
     id: "evt2",
@@ -23,7 +23,7 @@ const sampleEvents = [
     location: "Prayer Hall",
     description: "An evening of heartfelt worship and praise.",
     image:
-      "https://placehold.co/300x200/fd7e14/ffffff?text=Event+2",
+      "https://placehold.co/600x800/fd7e14/ffffff?text=Worship+Night", // Updated image URL
   },
   {
     id: "evt3",
@@ -34,7 +34,7 @@ const sampleEvents = [
     description:
       "Join us as we serve and bless our local community.",
     image:
-      "https://placehold.co/300x200/20c997/ffffff?text=Event+3",
+      "https://placehold.co/600x800/20c997/ffffff?text=Community+Outreach", // Updated image URL
   },
   {
     id: "evt4",
@@ -45,42 +45,49 @@ const sampleEvents = [
     description:
       "Strengthen your marriage with biblical insights and practical advice.",
     image:
-      "https://placehold.co/300x200/e83e8c/ffffff?text=Event+4",
+      "https://placehold.co/600x800/e83e8c/ffffff?text=Marriage+Seminar", // Updated image URL
   },
 ];
 
 const UpcomingEvents = () => {
   const renderEventItem = (event, isActive) => (
-    <div
-      className={`p-4 h-full flex flex-col ${
-        isActive ? "border-2 border-purple-500" : ""
-      }`}
-    >
-      {event.image && (
-        <img
-          src={event.image}
-          alt={event.name}
-          className="w-full h-32 object-cover rounded-md mb-3"
-        />
-      )}
-      <h3 className="text-xl font-semibold mb-2 text-gray-800">
-        {event.name}
-      </h3>
-      <div className="text-sm text-gray-600 mb-1 flex items-center">
-        <FaCalendarAlt className="mr-2 text-purple-600" /> {event.date} at{" "}
-        {event.time}
+    <div className="relative w-full h-full group text-white">
+      {/* Background Image */}
+      <img
+        src={event.image}
+        alt={event.name}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+      />
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+
+      {/* Content */}
+      <div
+        className={`relative p-5 flex flex-col h-full ${
+          isActive
+            ? "ring-2 ring-purple-400 ring-inset rounded-lg"
+            : ""
+        }`}
+      >
+        <h3 className="text-2xl font-semibold mb-2 drop-shadow-md">
+          {event.name}
+        </h3>
+        <div className="text-sm text-gray-200 mb-1 flex items-center drop-shadow-sm">
+          <FaCalendarAlt className="mr-2 text-purple-300" /> {event.date} at{" "}
+          {event.time}
+        </div>
+        <div className="text-sm text-gray-200 mb-4 flex items-center drop-shadow-sm">
+          <FaMapMarkerAlt className="mr-2 text-purple-300" /> {event.location}
+        </div>
+        <p className="text-gray-100 text-base flex-grow overflow-y-auto leading-relaxed scrollbar-thin scrollbar-thumb-purple-300 scrollbar-track-transparent pr-2">
+          {event.description}
+        </p>
+        {isActive && (
+          <button className="mt-auto bg-purple-500 text-white py-2 px-5 rounded-lg hover:bg-purple-600 transition-colors self-start shadow-lg flex items-center">
+            <FaTicketAlt className="mr-2" /> Register Now
+          </button>
+        )}
       </div>
-      <div className="text-sm text-gray-600 mb-3 flex items-center">
-        <FaMapMarkerAlt className="mr-2 text-purple-600" /> {event.location}
-      </div>
-      <p className="text-gray-700 text-sm flex-grow overflow-y-auto">
-        {event.description}
-      </p>
-      {isActive && (
-        <button className="mt-4 bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 self-start flex items-center">
-          <FaTicketAlt className="mr-2" /> Register Now
-        </button>
-      )}
     </div>
   );
 

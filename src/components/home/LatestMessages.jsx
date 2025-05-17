@@ -9,18 +9,15 @@ const sampleMessages = [
     speaker: "Pastor John",
     date: "2025-05-15",
     summary: "A powerful message on overcoming challenges with faith.",
-    image:
-      "https://placehold.co/300x200/007bff/ffffff?text=Message+1",
+    image: "https://placehold.co/600x800/007bff/ffffff?text=Faith+Over+Fear", // Updated image URL
   },
   {
     id: "msg2",
     title: "The Power of Prayer",
     speaker: "Guest Speaker Alice",
     date: "2025-05-08",
-    summary:
-      "Discover the transformative power of a consistent prayer life.",
-    image:
-      "https://placehold.co/300x200/28a745/ffffff?text=Message+2",
+    summary: "Discover the transformative power of a consistent prayer life.",
+    image: "https://placehold.co/600x800/28a745/ffffff?text=Power+of+Prayer", // Updated image URL
   },
   {
     id: "msg3",
@@ -28,58 +25,54 @@ const sampleMessages = [
     speaker: "Pastor Jane",
     date: "2025-05-01",
     summary: "Finding and fulfilling your God-given purpose.",
-    image:
-      "https://placehold.co/300x200/ffc107/000000?text=Message+3",
+    image: "https://placehold.co/600x800/ffc107/000000?text=Purposeful+Life", // Updated image URL
   },
   {
     id: "msg4",
     title: "Community and Fellowship",
     speaker: "Pastor John",
     date: "2025-04-24",
-    summary:
-      "The importance of belonging to a supportive church family.",
-    image:
-      "https://placehold.co/300x200/dc3545/ffffff?text=Message+4",
+    summary: "The importance of belonging to a supportive church family.",
+    image: "https://placehold.co/600x800/dc3545/ffffff?text=Community", // Updated image URL
   },
   {
     id: "msg5",
     title: "Grace and Forgiveness",
     speaker: "Pastor Emily",
     date: "2025-04-17",
-    summary:
-      "Understanding the depth of God’s grace and forgiveness.",
-    image:
-      "https://placehold.co/300x200/17a2b8/ffffff?text=Message+5",
+    summary: "Understanding the depth of God’s grace and forgiveness.",
+    image: "https://placehold.co/600x800/17a2b8/ffffff?text=Grace+%26+Forgiveness", // Updated image URL
   },
 ];
 
 const LatestMessages = () => {
   const renderMessageItem = (message, isActive) => (
-    <div
-      className={`p-4 h-full flex flex-col ${
-        isActive ? "border-2 border-blue-500" : ""
-      }`}
-    >
-      {message.image && (
-        <img
-          src={message.image}
-          alt={message.title}
-          className="w-full h-32 object-cover rounded-md mb-3"
-        />
-      )}
-      <h3 className="text-xl font-semibold mb-2 text-gray-800">
-        {message.title}
-      </h3>
-      <p className="text-sm text-gray-600 mb-1">Speaker: {message.speaker}</p>
-      <p className="text-xs text-gray-500 mb-3">Date: {message.date}</p>
-      <p className="text-gray-700 text-sm flex-grow overflow-y-auto">
-        {message.summary}
-      </p>
-      {isActive && (
-        <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 self-start">
-          Watch Now
-        </button>
-      )}
+    <div className="relative w-full h-full group text-white"> {/* Ensure text is white by default */}
+      {/* Background Image */}
+      <img
+        src={message.image}
+        alt={message.title}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+      />
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+
+      {/* Content */}
+      <div className={`relative p-5 flex flex-col h-full ${isActive ? "ring-2 ring-blue-400 ring-inset rounded-lg" : ""}`}>
+        <h3 className="text-2xl font-semibold mb-2 drop-shadow-md">
+          {message.title}
+        </h3>
+        <p className="text-sm text-gray-200 mb-1 drop-shadow-sm">Speaker: {message.speaker}</p>
+        <p className="text-xs text-gray-300 mb-4 drop-shadow-sm">Date: {message.date}</p>
+        <p className="text-gray-100 text-base flex-grow overflow-y-auto leading-relaxed scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-transparent pr-2">
+          {message.summary}
+        </p>
+        {isActive && (
+          <button className="mt-auto bg-blue-500 text-white py-2 px-5 rounded-lg hover:bg-blue-600 transition-colors self-start shadow-lg">
+            Watch Now
+          </button>
+        )}
+      </div>
     </div>
   );
 
