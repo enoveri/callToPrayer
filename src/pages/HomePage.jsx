@@ -5,11 +5,10 @@ import Welcome from "../components/home/Welcome";
 import LatestMessages from "../components/home/LatestMessages";
 import UpcomingEvents from "../components/home/UpcomingEvents";
 import Connect from "../components/home/Connect";
-import Layout from "../components/layout/Layout";
 
 const HomePage = () => {
   return (
-    <Layout>
+    <>
       <Hero />
       {/* <ServiceTimes /> */}
       <Welcome />
@@ -25,7 +24,7 @@ const HomePage = () => {
         </div>
       </div>
       <Connect />
-    </Layout>
+    </>
   );
 };
 

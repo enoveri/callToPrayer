@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import Layout from "../components/layout/Layout";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom"; // Import Link
@@ -73,7 +72,6 @@ const WatchPage = () => {
   const isServiceLive = true; // Set to false to see the "Watch Latest Message" variant
 
   return (
-    <Layout>
       <div className="pt-20 md:pt-28 pb-16 bg-gray-50 text-gray-800">
         {/* Hero Section */}
         <section 
@@ -209,7 +207,6 @@ const WatchPage = () => {
         </section>
 
       </div>
-    </Layout>
   );
 };
 

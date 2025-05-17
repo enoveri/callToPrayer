@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Layout from '../components/layout/Layout';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FaCalendarAlt, FaMapMarkerAlt, FaArrowRight, FaTicketAlt, FaSearch, FaFilter } from 'react-icons/fa';
@@ -172,138 +171,136 @@ const EventsPage = () => {
   const featuredEvent = allEvents.find(event => event.featured);
 
   return (
-    <Layout>
-      <div ref={pageRef} className="overflow-x-hidden">
-        {/* Hero Section */}
-        <section
-          className="relative bg-gradient-to-r from-primary to-secondary text-white py-32 md:py-48 flex items-center justify-center text-center fade-in-section"
-          style={{
-            backgroundImage: "url('https://placehold.co/1920x800/0284c7/ffffff?text=Upcoming+Events')", // Sky blue gradient
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="relative z-10 container mx-auto px-4">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">Church Events</h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Discover what's happening at Call To Prayer. Join us for worship, fellowship, and community outreach.
-            </p>
-            <a
-              href="#upcoming-events"
-              className="bg-white text-primary font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-200 transition duration-300"
-            >
-              View All Events
-            </a>
-          </div>
-        </section>
+    <div ref={pageRef} className="overflow-x-hidden">
+      {/* Hero Section */}
+      <section
+        className="relative bg-gradient-to-r from-primary to-secondary text-white py-32 md:py-48 flex items-center justify-center text-center fade-in-section"
+        style={{
+          backgroundImage: "url('https://placehold.co/1920x800/0284c7/ffffff?text=Upcoming+Events')", // Sky blue gradient
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="relative z-10 container mx-auto px-4">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">Church Events</h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            Discover what's happening at Call To Prayer. Join us for worship, fellowship, and community outreach.
+          </p>
+          <a
+            href="#upcoming-events"
+            className="bg-white text-primary font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-200 transition duration-300"
+          >
+            View All Events
+          </a>
+        </div>
+      </section>
 
-        {/* Featured Event Section */}
-        {featuredEvent && (
-          <Section bgColor="bg-gray-50" id="featured-event">
-            <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold text-primary">Featured Event</h2>
+      {/* Featured Event Section */}
+      {featuredEvent && (
+        <Section bgColor="bg-gray-50" id="featured-event">
+          <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-primary">Featured Event</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="event-card">
+              <img src={featuredEvent.image} alt={featuredEvent.title} className="w-full h-auto md:h-[400px] object-cover rounded-lg shadow-xl" />
             </div>
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-              <div className="event-card">
-                <img src={featuredEvent.image} alt={featuredEvent.title} className="w-full h-auto md:h-[400px] object-cover rounded-lg shadow-xl" />
+            <div>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{featuredEvent.title}</h3>
+              <div className="flex items-center text-gray-600 mb-2 text-lg">
+                <FaCalendarAlt className="mr-2 text-secondary" /> {featuredEvent.date} - {featuredEvent.time}
               </div>
-              <div>
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{featuredEvent.title}</h3>
-                <div className="flex items-center text-gray-600 mb-2 text-lg">
-                  <FaCalendarAlt className="mr-2 text-secondary" /> {featuredEvent.date} - {featuredEvent.time}
-                </div>
-                <div className="flex items-center text-gray-600 mb-4 text-lg">
-                  <FaMapMarkerAlt className="mr-2 text-secondary" /> {featuredEvent.location}
-                </div>
-                <p className="text-gray-700 text-lg mb-6">{featuredEvent.description}</p>
-                <a
-                  href={featuredEvent.ticketLink}
-                  className="inline-flex items-center bg-secondary text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-opacity-80 transition duration-300"
+              <div className="flex items-center text-gray-600 mb-4 text-lg">
+                <FaMapMarkerAlt className="mr-2 text-secondary" /> {featuredEvent.location}
+              </div>
+              <p className="text-gray-700 text-lg mb-6">{featuredEvent.description}</p>
+              <a
+                href={featuredEvent.ticketLink}
+                className="inline-flex items-center bg-secondary text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-opacity-80 transition duration-300"
+              >
+                <FaTicketAlt className="mr-2" /> Get Tickets / More Info
+              </a>
+            </div>
+          </div>
+        </Section>
+      )}
+
+      {/* Upcoming Events Section with Filters */}
+      <Section title="Upcoming Events" id="upcoming-events" bgColor="bg-white">
+        <div className="mb-12 p-6 bg-gray-100 rounded-lg shadow-md">
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            <div>
+              <label htmlFor="search-event" className="block text-sm font-medium text-gray-700 mb-1">Search Events</label>
+              <div className="relative">
+                <input 
+                  type="text" 
+                  id="search-event"
+                  placeholder="Search by keyword..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
+                />
+                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="filter-category" className="block text-sm font-medium text-gray-700 mb-1">Filter by Category</label>
+              <div className="relative">
+                <select 
+                  id="filter-category"
+                  value={filter}
+                  onChange={(e) => setFilter(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary appearance-none bg-white"
                 >
-                  <FaTicketAlt className="mr-2" /> Get Tickets / More Info
-                </a>
+                  <option value="all">All Categories</option>
+                  <option value="community">Community</option>
+                  <option value="youth">Youth</option>
+                  <option value="worship">Worship</option>
+                  <option value="outreach">Outreach</option>
+                  <option value="special">Special Events</option>
+                </select>
+                <FaFilter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               </div>
             </div>
-          </Section>
+          </div>
+        </div>
+
+        {filteredEvents.length > 0 ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredEvents.map(event => <EventCard key={event.id} event={event} />)}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-xl text-gray-500">No events match your current filters. Try adjusting your search or filter criteria.</p>
+          </div>
         )}
+      </Section>
 
-        {/* Upcoming Events Section with Filters */}
-        <Section title="Upcoming Events" id="upcoming-events" bgColor="bg-white">
-          <div className="mb-12 p-6 bg-gray-100 rounded-lg shadow-md">
-            <div className="grid md:grid-cols-2 gap-6 items-center">
-              <div>
-                <label htmlFor="search-event" className="block text-sm font-medium text-gray-700 mb-1">Search Events</label>
-                <div className="relative">
-                  <input 
-                    type="text" 
-                    id="search-event"
-                    placeholder="Search by keyword..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
-                  />
-                  <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="filter-category" className="block text-sm font-medium text-gray-700 mb-1">Filter by Category</label>
-                <div className="relative">
-                  <select 
-                    id="filter-category"
-                    value={filter}
-                    onChange={(e) => setFilter(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary appearance-none bg-white"
-                  >
-                    <option value="all">All Categories</option>
-                    <option value="community">Community</option>
-                    <option value="youth">Youth</option>
-                    <option value="worship">Worship</option>
-                    <option value="outreach">Outreach</option>
-                    <option value="special">Special Events</option>
-                  </select>
-                  <FaFilter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Call to Action Section */}
+      <Section title="Host or Suggest an Event" bgColor="bg-primary" textColor="text-white">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-lg md:text-xl mb-8">
+            Have an idea for an event that would bless our community or church family? Or perhaps you'd like to volunteer to help with existing events? We'd love to hear from you!
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a
+              href="/contact" // Link to contact page or a specific form
+              className="bg-white text-primary font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-200 transition duration-300"
+              >
+              Suggest an Event
+              </a>
+              <a
+              href="/connect#volunteer" // Link to volunteer section on connect page
+              className="border-2 border-white text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-white hover:text-primary transition duration-300"
+              >
+              Volunteer for Events
+              </a>
+          </div>           
+        </div>
+      </Section>
 
-          {filteredEvents.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredEvents.map(event => <EventCard key={event.id} event={event} />)}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-xl text-gray-500">No events match your current filters. Try adjusting your search or filter criteria.</p>
-            </div>
-          )}
-        </Section>
-
-        {/* Call to Action Section */}
-        <Section title="Host or Suggest an Event" bgColor="bg-primary" textColor="text-white">
-          <div className="max-w-2xl mx-auto text-center">
-            <p className="text-lg md:text-xl mb-8">
-              Have an idea for an event that would bless our community or church family? Or perhaps you'd like to volunteer to help with existing events? We'd love to hear from you!
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <a
-                href="/contact" // Link to contact page or a specific form
-                className="bg-white text-primary font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-200 transition duration-300"
-                >
-                Suggest an Event
-                </a>
-                <a
-                href="/connect#volunteer" // Link to volunteer section on connect page
-                className="border-2 border-white text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-white hover:text-primary transition duration-300"
-                >
-                Volunteer for Events
-                </a>
-            </div>           
-          </div>
-        </Section>
-
-      </div>
-    </Layout>
+    </div>
   );
 };
 

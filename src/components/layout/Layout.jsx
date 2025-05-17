@@ -6,7 +6,8 @@ const Layout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen relative">
       <Header />
-      <main className="flex-grow bg-sky-100">{children}</main>
+      {/* Added pt-[104px] to account for fixed header height (HeaderTop ~40px + HeaderNav ~64px) */}
+      <main className="flex-grow bg-sky-100 pt-[104px]">{children}</main>
       <Footer />
     </div>
   );

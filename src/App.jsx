@@ -6,6 +6,7 @@ import NavigationContext, {
 } from "./context/NavigationContext";
 import PageTransition from "./components/transitions/PageTransition";
 import ServiceTimer from "./components/common/ServiceTimer";
+import Layout from "./components/layout/Layout"; // Import Layout
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import WatchPage from "./pages/WatchPage";
@@ -37,20 +38,22 @@ function AppContent() {
 
   return (
     <RouteObserver>
-      <PageTransition>
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about/*" element={<AboutPage />} />
-          <Route path="/visit/*" element={<VisitPage />} /> {/* Added */}
-          <Route path="/watch" element={<WatchPage />} />
-          <Route path="/give" element={<GivePage />} />
-          <Route path="/connect/*" element={<ConnectPage />} /> {/* Assuming Connect might have sub-routes */}
-          <Route path="/grow/*" element={<GrowPage />} />   {/* Added */}
-          <Route path="/care/*" element={<CarePage />} />   {/* Added */}
-          <Route path="/events/*" element={<EventsPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </PageTransition>
+      <Layout> {/* Wrap with Layout component */}
+        <PageTransition>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about/*" element={<AboutPage />} />
+            <Route path="/visit/*" element={<VisitPage />} />
+            <Route path="/watch" element={<WatchPage />} />
+            <Route path="/give" element={<GivePage />} />
+            <Route path="/connect/*" element={<ConnectPage />} />
+            <Route path="/grow/*" element={<GrowPage />} />
+            <Route path="/care/*" element={<CarePage />} />
+            <Route path="/events/*" element={<EventsPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </PageTransition>
+      </Layout> {/* Close Layout component */}
     </RouteObserver>
   );
 }

@@ -15,7 +15,27 @@ const HeaderNav = () => {
   return (
     <div className="bg-blue-800 text-white">
       <div className="container mx-auto px-4">
-        <nav className="flex justify-center">
+        {/* Modified nav to include logo and space items */}
+        <nav className="flex items-center justify-between h-16">
+          {/* Logo - Adapted for HeaderNav */}
+          <Link to="/" className="flex items-center group">
+            <div className="flex flex-col items-start">
+              <span
+                className={`text-2xl font-extrabold leading-none tracking-tight text-white group-hover:text-yellow-300 transition-colors duration-300`}
+              >
+                <span className="font-light">Call</span>
+                <span className="font-bold text-yellow-400">2</span>
+                <span className="font-light">Prayer</span>
+              </span>
+              <span
+                className={`text-[9px] uppercase tracking-wider text-blue-300 group-hover:text-yellow-300 transition-colors duration-200`}
+              >
+                Mbale, Uganda
+              </span>
+            </div>
+          </Link>
+
+          {/* Navigation Links */}
           <ul className="flex">
             <li className="relative group" 
                 onMouseEnter={() => handleMouseEnter('visit')} 

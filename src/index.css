@@ -201,32 +201,28 @@ h6 {
   width: 100%;
 }
 
-.fadeIn {
-  animation: 0.5s fadeIn forwards;
+.fadeIn { /* This class is used by PageTransition.jsx */
+  animation: 0.5s pageTransitionFadeIn forwards; /* Changed to pageTransitionFadeIn */
 }
 
-.fadeOut {
-  animation: 0.5s fadeOut forwards;
+.fadeOut { /* This class is used by PageTransition.jsx */
+  animation: 0.5s pageTransitionFadeOut forwards; /* Changed to pageTransitionFadeOut */
 }
 
-@keyframes fadeIn {
+@keyframes pageTransitionFadeIn { /* Renamed from fadeIn */
   from {
     opacity: 0;
-    transform: translate(0, 20px);
   }
   to {
     opacity: 1;
-    transform: translate(0, 0);
   }
 }
 
-@keyframes fadeOut {
+@keyframes pageTransitionFadeOut { /* Renamed from fadeOut */
   from {
     opacity: 1;
-    transform: translate(0, 0);
   }
   to {
     opacity: 0;
-    transform: translate(0, -20px);
   }
 }
