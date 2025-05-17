@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import Layout from "../components/layout/Layout";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -42,7 +41,6 @@ const AboutPage = () => {
   };
 
   return (
-    <Layout>
       <div className="pt-20 md:pt-28 pb-16 bg-gray-50 text-gray-800">
         {/* Hero Section */}
         <section 
@@ -176,7 +174,6 @@ const AboutPage = () => {
         </section>
 
       </div>
-    </Layout>
   );
 };
 
