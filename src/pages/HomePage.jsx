@@ -11,10 +11,19 @@ const HomePage = () => {
   return (
     <Layout>
       <Hero />
-      <ServiceTimes />
+      {/* <ServiceTimes /> */}
       <Welcome />
-      <LatestMessages />
-      <UpcomingEvents />
+      {/* Container for LatestMessages and UpcomingEvents */}
+      <div className="container mx-auto px-4">
+        <div className="lg:flex lg:space-x-8">
+          <div className="lg:w-1/2">
+            <LatestMessages />
+          </div>
+          <div className="lg:w-1/2">
+            <UpcomingEvents />
+          </div>
+        </div>
+      </div>
       <Connect />
     </Layout>
   );
