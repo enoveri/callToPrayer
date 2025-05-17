@@ -10,9 +10,9 @@ export default NavigationContext;
 export const NavigationProvider = ({ children }) => {
   // Track if we're on transparent header pages (like homepage)
   const [isTransparentHeader, setIsTransparentHeader] = useState(true);
-
   // Track current page for context-specific styling
   const [currentPage, setCurrentPage] = useState("home");
+  
   // Custom theme colors aligned with Lakewood Church style
   const pageThemes = {
     home: {
@@ -44,7 +44,16 @@ export const NavigationProvider = ({ children }) => {
       primaryColor: "blue-800",
       secondaryColor: "blue-900",
       accentColor: "yellow-500",
+    },    'service-times': {
+      primaryColor: "blue-800",
+      secondaryColor: "blue-900",
+      accentColor: "yellow-500",
     },
+    'sign-in': {
+      primaryColor: "blue-800",
+      secondaryColor: "blue-900",
+      accentColor: "yellow-500",
+    }
   };
 
   // Get current theme based on page

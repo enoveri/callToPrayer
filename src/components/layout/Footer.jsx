@@ -88,9 +88,7 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
-
-          {/* Service Times */}
+          </div>          {/* Service Times */}
           <div>
             <h4 className="font-bold text-xl mb-4">Service Times</h4>
             <div className="mb-3">
@@ -101,10 +99,18 @@ const Footer = () => {
               <p className="font-semibold">Midweek Service</p>
               <p>Wednesday 7:00 PM</p>
             </div>
-            <div>
+            <div className="mt-2">
+              <Link to="/service-times" className="text-blue-400 hover:text-blue-300">
+                View all service times
+              </Link>
+            </div>
+            <div className="mb-3">
               <p className="font-semibold">Prayer Meeting</p>
               <p>Tuesday & Friday 6:30 PM</p>
             </div>
+            <Link to="/service-times" className="text-blue-400 hover:text-blue-300 transition mt-2 inline-block">
+              View All Service Times
+            </Link>
           </div>
 
           {/* Newsletter */}

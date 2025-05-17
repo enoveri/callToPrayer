@@ -69,12 +69,11 @@ const Welcome = () => {
                   className="bg-blue-800 text-white px-6 py-4 rounded-md text-center hover:bg-blue-900 transition-all hover:scale-105 transform flex items-center justify-center sm:justify-start"
                 >
                   About Us <FaArrowRight className="ml-2" />
-                </Link>
-                <Link
-                  to="/connect"
-                  className="bg-yellow-500 text-blue-900 px-6 py-4 rounded-md text-center hover:bg-yellow-400 transition-all hover:scale-105 transform"
+                </Link>                <Link
+                  to="/service-times"
+                  className="bg-yellow-500 text-blue-900 px-6 py-4 rounded-md text-center hover:bg-yellow-400 transition-all hover:scale-105 transform flex items-center justify-center sm:justify-start"
                 >
-                  Plan Your Visit
+                  Service Times <FaArrowRight className="ml-2" />
                 </Link>
               </div>
             </div>

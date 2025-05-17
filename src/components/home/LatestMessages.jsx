@@ -2,30 +2,27 @@ import React from "react";
 import StackedCardCarousel from "../common/StackedCardCarousel";
 
 // Sample data - replace with your actual data source (e.g., API call, context)
-const sampleMessages = [
-  {
+const sampleMessages = [  {
     id: "msg1",
     title: "Faith Over Fear",
     speaker: "Pastor John",
     date: "2025-05-15",
-    summary: "A powerful message on overcoming challenges with faith.",
-    image: "https://placehold.co/600x800/007bff/ffffff?text=Faith+Over+Fear", // Updated image URL
-  },
-  {
+    summary: "A powerful message on overcoming challenges with faith. Learn how to stand strong in your faith when facing life's greatest challenges and uncertainties.",
+    image: "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  },  {
     id: "msg2",
     title: "The Power of Prayer",
     speaker: "Guest Speaker Alice",
     date: "2025-05-08",
-    summary: "Discover the transformative power of a consistent prayer life.",
-    image: "https://placehold.co/600x800/28a745/ffffff?text=Power+of+Prayer", // Updated image URL
-  },
-  {
+    summary: "Discover the transformative power of a consistent prayer life. This message explores how prayer connects us to God's purpose and brings breakthrough in every area of life.",
+    image: "https://images.unsplash.com/photo-1544374722-86a5a5e92be3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  },  {
     id: "msg3",
     title: "Living a Purposeful Life",
     speaker: "Pastor Jane",
     date: "2025-05-01",
-    summary: "Finding and fulfilling your God-given purpose.",
-    image: "https://placehold.co/600x800/ffc107/000000?text=Purposeful+Life", // Updated image URL
+    summary: "Finding and fulfilling your God-given purpose. Understand the unique calling God has placed on your life and how to walk in it with confidence and joy.",
+    image: "https://images.unsplash.com/photo-1488998527040-85054a85150e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "msg4",
